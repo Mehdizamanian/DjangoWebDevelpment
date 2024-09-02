@@ -8,6 +8,8 @@ class Post(models.Model):
   author=models.CharField(max_length=70)
   updated_time=models.DateField(auto_now=True)
   created_time=models.DateField(auto_now_add=True)
+
+
   
 
 
