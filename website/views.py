@@ -11,11 +11,7 @@ def contact(request):
   return render(request,'website/contact.html')
 
 
-def blog(request):
-  return render(request,'website/blog.html')
-
-
-def post_details(request):
-  return render(request,'website/post-details.html')
+# def post_details(request):
+#   return render(request,'website/post-details.html')
 
 
