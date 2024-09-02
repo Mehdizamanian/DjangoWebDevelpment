@@ -9,6 +9,13 @@ class Post(models.Model):
   updated_time=models.DateField(auto_now=True)
   created_time=models.DateField(auto_now_add=True)
 
+  def __str__(self):
+    return self.title
+
+  class Meta:
+    verbose_name="پست  "
+    verbose_name_plural="پست ها "
+
 
   
 
