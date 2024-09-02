@@ -1,9 +1,11 @@
 from django.shortcuts import render ,HttpResponse
-
+from .models import Post
 
 
 def blog(request):
-  return render(request,'blogs/blog.html')
+  posts=Post.objects.all()
+  context={'posts':posts}
+  return render(request,'blogs/blog.html', context)
 
 
 def post_details(request):
