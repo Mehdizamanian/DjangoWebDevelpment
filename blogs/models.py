@@ -15,6 +15,7 @@ class Post(models.Model):
   class Meta:
     verbose_name="پست  "
     verbose_name_plural="پست ها "
+    ordering=['created_time']
 
 
   
