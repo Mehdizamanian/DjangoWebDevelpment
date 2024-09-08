@@ -17,6 +17,8 @@ class Post(models.Model):
     ordering=['created_time']
 
 
+class Category(models.Model):
+  title=models.CharField(max_length=80)
   
 
 
