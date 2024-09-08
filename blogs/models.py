@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User=get_user_model()
 
 class Post(models.Model):
   title=models.CharField(max_length=254)
@@ -7,6 +9,12 @@ class Post(models.Model):
   active=models.BooleanField(default=False)
   updated_time=models.DateField(auto_now=True)
   created_time=models.DateField(auto_now_add=True)
+  # rel
+  author=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+  image=models.ImageField(upload_to='blogs/images/',default="blogs/images/1.png")
+  category=models.ManyToManyField("Category")
+  breif_description=models.CharField(max_length=80,null=True,blank=True)
+  # endrel
 
   def __str__(self):
     return self.title
@@ -19,6 +27,9 @@ class Post(models.Model):
 
 class Category(models.Model):
   title=models.CharField(max_length=80)
+
+  def __str__(self):
+    return self.title
   
 
 
