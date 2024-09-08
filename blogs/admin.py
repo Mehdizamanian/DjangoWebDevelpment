@@ -4,7 +4,7 @@ from .models import Post , Category
 
 
 class PostAdmin(admin.ModelAdmin):
-  list_display=['id','title','author','active']
+  list_display=['id','title','active']
   list_filter=['active']
   search_fields=('title','description',)
   date_hierarchy='created_time'
@@ -18,4 +18,4 @@ class CategoryAdmin(admin.ModelAdmin):
   list_display=['title']
   search_fields=('title',)
 
-admin.site.register(Post,PostAdmin)
+admin.site.register(Category,CategoryAdmin)
