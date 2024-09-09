@@ -64,7 +64,7 @@
                   <ul class="post-info">
                     <li><a href="#">{{post.author.first_name}}</a></li>
                     <li><a href="#">{{post.created_time}}</a></li>
-                    <li><a href="#">12 Comments</a></li>
+                    <li><a href="#">Comments</a></li>
                   </ul>
                  <a href="{% url "blogs:post-details" num=post.id %}"><p>{{post.description | truncatechars:150}}</p></a>
                   <div class="post-options">
