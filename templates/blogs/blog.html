@@ -66,7 +66,7 @@
                     <li><a href="#">{{post.created_time}}</a></li>
                     <li><a href="#">12 Comments</a></li>
                   </ul>
-                  <p>{{post.description | truncatechars:150}}</p>
+                 <a href="{% url "blogs:post-details" num=post.id %}"><p>{{post.description | truncatechars:150}}</p></a>
                   <div class="post-options">
                     <div class="row">
                       <div class="col-lg-12">
