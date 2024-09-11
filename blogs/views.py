@@ -2,8 +2,11 @@ from django.shortcuts import render ,get_object_or_404
 from .models import Post
 
 
-def blog(request):
+def blog(request,cat=None):
   posts=Post.objects.filter(active=True)
+  if cat !=None:
+    posts=posts.filter(category__title=cat)
+
   context={'posts':posts}
   return render(request,'blogs/blog.html', context)
 
