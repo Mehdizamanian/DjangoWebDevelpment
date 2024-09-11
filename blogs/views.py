@@ -1,4 +1,5 @@
-from django.shortcuts import render ,HttpResponse
+from django.shortcuts import render ,get_object_or_404
+from django.http import HttpResponse
 from .models import Post
 
 
@@ -9,6 +10,12 @@ def blog(request):
 
 
 def post_details(request , num):
-  post=Post.objects.get(id=num)
-  context={'post':post}
+  try:
+      post=Post.objects.get(id=num)
+      context={'post':post}
+
+  except post.DoesNotExsit:
+     return HttpResponse('<h1>404 Error </h1>')
+
+  
   return render(request,'blogs/post-details.html',context)
