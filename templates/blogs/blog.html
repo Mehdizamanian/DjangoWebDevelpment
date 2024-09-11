@@ -58,7 +58,7 @@
                 </div>
                 <div class="down-content">
                   <span>{{post.title}}</span>
-                  <a href="post-details.html"
+                  <a href="{% url "blogs:author" auth=post.author %}"
                     ><h4>author : {{post.author}}</h4></a
                   >
                   <ul class="post-info">

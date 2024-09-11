@@ -1,6 +1,6 @@
 
 """
-URL Blogs
+all urls begins with blogs/....
 """
 
 
@@ -11,6 +11,7 @@ app_name="blogs"
 urlpatterns = [
     path('posts/',blog , name="blog"),
     path('posts/post-detail/<int:num>/',post_details , name="post-details"),
-    path('posts/category/<str:cat>/',blog , name="blog"),
+    path('category/<cat>/',blog ,name="category"),
+    path('author/<auth>/',blog ,name="author"),
 
 ]
