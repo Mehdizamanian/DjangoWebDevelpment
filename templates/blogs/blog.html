@@ -65,7 +65,7 @@
                     ><h4>author : {{post.author}}</h4></a
                   >
                   <ul class="post-info">
-                    <li><a href="#">{{post.author.first_name}}</a></li>
+                    <li><a href="#">{{post.author.first_name|upper }}</a></li>
                     <li><a href="#">{{post.created_time}}</a></li>
                     <li><a href="#">Comments</a></li>
                   </ul>
@@ -109,7 +109,7 @@
 
           {% include "blogs/includes/blog-search.html" %}
 
-          {% include "blogs/includes/blog-recent.html" %}
+          {% recent_post %}
 
           {% include "blogs/includes/blog-categories.html" %}
           
