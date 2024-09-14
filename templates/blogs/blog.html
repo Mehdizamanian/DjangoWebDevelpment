@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% load blogs_tags %}
+{% block content %}
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="heading-page header-text">
@@ -112,7 +115,7 @@
           
           {% include "blogs/includes/blog-tags.html" %}
 
-
+            {% mycustom_tag %}
 
           </div>
         </div>
