@@ -1,6 +1,6 @@
 
 from django import template
-from blogs.models import Post
+from blogs.models import Post,Category
 from persiantools.jdatetime import JalaliDate
 
 
@@ -26,3 +26,9 @@ def recent_post():
 @register.filter
 def jalilidate(value):
   return JalaliDate(value).strftime("%Y/%m/%d")
+
+
+@register.inclusion_tag('blogs/includes/blog-categories.html')
+def categories():
+  categories=Category.objects.all()
+  return {'categories':categories}
