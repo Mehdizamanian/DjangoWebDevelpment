@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+ {% load static %}
+ {% load blogs_tags %}
+  {% block content %}
 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
@@ -71,7 +74,7 @@
                   <a href="post-details.html"><h4>Author : {{post.author}}   </h4>  </a>
                   <ul class="post-info">
                     <li><a href="#">{{post.author.get_full_name}}</a></li>
-                    <li><a href="#">{{post.created_time|date:'y/m/d'}}</a></li>
+                    <li><a href="#">{{post.created_time|jalilidate }}</a></li>
 
                     {% for cat in post.category.all %}
                     <li><a href="{% url "blogs:category" cat=cat.title %}">{{cat.title}}</a></li>
