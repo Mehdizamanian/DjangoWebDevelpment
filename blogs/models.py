@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from taggit.managers import TaggableManager
 
 User=get_user_model()
 
@@ -15,6 +16,8 @@ class Post(models.Model):
   category=models.ManyToManyField("Category")
   breif_description=models.CharField(max_length=80,null=True,blank=True)
   # endrel
+  tags = TaggableManager()
+
 
   def __str__(self):
     return self.title

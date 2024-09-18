@@ -2,7 +2,7 @@
 from django import template
 from blogs.models import Post,Category
 from persiantools.jdatetime import JalaliDate
-
+from taggit.models import Tag
 
 register=template.Library()
 
@@ -43,3 +43,11 @@ def categories():
     categories_count[cat]=posts.filter(category__title=cat).count()
 
   return {'categories_count':categories_count}
+
+
+
+@register.inclusion_tag('blogs/includes/blog-tags.html')
+def tag_post():
+  tags=Tag.objects.all()
+  return {'tags':tags}
+
