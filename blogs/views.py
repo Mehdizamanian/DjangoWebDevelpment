@@ -1,6 +1,6 @@
 from django.shortcuts import render ,get_object_or_404
 from .models import Post
-
+from django.db.models import Q
 
 def blog(request,**kwargs):
   posts=Post.objects.filter(active=True)
@@ -14,7 +14,7 @@ def blog(request,**kwargs):
 
   search=request.GET.get('q')
   if search:
-     posts=posts.filter(title__icontains=search)
+     posts=posts.filter(Q(title__icontains=search) | Q(description__icontains=search))
 
   context={'posts':posts}
   return render(request,'blogs/blog.html', context)
