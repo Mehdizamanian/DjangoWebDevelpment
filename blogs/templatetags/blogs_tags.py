@@ -51,3 +51,4 @@ def tag_post():
   tags=Tag.objects.all()
   return {'tags':tags}
 
+
