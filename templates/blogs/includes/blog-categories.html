@@ -7,9 +7,11 @@
     </div>
     <div class="content">
       <ul>
-        {% for cat in categories %}
-        <li><a href="{% url "blogs:category" cat=cat.title %}">{{cat.title}}</a></li>
+        {% for cat,num in categories_count.items %}
+        <li><a dir="left" href="{% url "blogs:category" cat=cat.title %}">{{cat}}:{{num}}</a></li>
         {% endfor %}
+
+
       </ul>
     </div>
   </div>

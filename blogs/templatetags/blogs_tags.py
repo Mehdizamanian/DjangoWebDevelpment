@@ -27,8 +27,19 @@ def recent_post():
 def jalilidate(value):
   return JalaliDate(value).strftime("%Y/%m/%d")
 
+# showing just name category
+# @register.inclusion_tag('blogs/includes/blog-categories.html')
+# def categories():
+#   categories=Category.objects.all()
+#   return {'categories':categories}
 
 @register.inclusion_tag('blogs/includes/blog-categories.html')
 def categories():
-  categories=Category.objects.all()
-  return {'categories':categories}
+  categories=Category.objects.all() 
+  posts=Post.objects.filter(active=True)
+  categories_count={}
+
+  for cat in categories:
+    categories_count[cat]=posts.filter(category__title=cat).count()
+
+  return {'categories_count':categories_count}

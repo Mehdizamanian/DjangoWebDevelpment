@@ -11,6 +11,11 @@ def blog(request,**kwargs):
   if kwargs.get('auth'):
    posts=posts.filter(author__username=kwargs['auth'])
 
+
+  search=request.GET.get('q')
+  if search:
+     posts=posts.filter(title__icontains=search)
+
   context={'posts':posts}
   return render(request,'blogs/blog.html', context)
 
