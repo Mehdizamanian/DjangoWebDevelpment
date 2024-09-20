@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post , Category
+from .models import Post , Category , Comment
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -19,3 +19,9 @@ class CategoryAdmin(admin.ModelAdmin):
   search_fields=('title',)
 
 admin.site.register(Category,CategoryAdmin)
+
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+  list_display=['post','name','email','active']
