@@ -154,6 +154,7 @@
                         </p>
                       </div>
                     </li>
+                    <br/>
 
 {% endfor %}
 
@@ -184,7 +185,24 @@
                   <h2>Your comment</h2>
                 </div>
                 <div class="content">
-                  <form id="comment" action="#" method="post">
+
+
+
+                  <form id="comment" action="{% url "blogs:post-details" num=post.id %}" method="POST">
+
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button
+                            type="submit"
+                            id="form-submit"
+                            class="main-button"
+                          >
+                            Submit
+                          </button>
+
+
+
+{% comment %} 
                     <div class="row">
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
@@ -240,8 +258,16 @@
                           </button>
                         </fieldset>
                       </div>
-                    </div>
+                    </div> {% endcomment %}
+
+
+
                   </form>
+
+
+
+
+
                 </div>
               </div>
             </div>

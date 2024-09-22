@@ -1,5 +1,6 @@
-from django.shortcuts import render ,get_object_or_404
+from django.shortcuts import render ,get_object_or_404,redirect
 from .models import Post , Comment
+from .forms import CommentForm
 from django.db.models import Q
 
 
@@ -24,5 +25,13 @@ def blog(request,**kwargs):
 def post_details(request , num):
   post=get_object_or_404(Post,id=num)
   comments=Comment.objects.filter(active=True,post=post)
-  context={'post':post,'comments':comments}
+
+  if request.method=="POST":
+    form=CommentForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect('/')
+
+  form=CommentForm()
+  context={'post':post,'comments':comments,'form':form}
   return render(request,'blogs/post-details.html',context)
