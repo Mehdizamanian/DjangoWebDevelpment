@@ -147,10 +147,11 @@
                         alt="">
                       </div>
                       <div class="right-content">
-                        <h4>{{comment.name}}<span>May 16, 2020</span></h4>
+                        <h4>{{comment.name}}</h4>
                         <p>
                           {{comment.subject}}<br/>
-                          {{comment.message}}
+                          {{comment.message}}<br/>
+                          <span>{{comment.created_time |jalilidate }}</span>
                         </p>
                       </div>
                     </li>
@@ -264,7 +265,7 @@
                         </fieldset>
                       </div>
 
-
+                      {{form.captcha}}
 
                       <div class="col-lg-12">
                         <fieldset>
