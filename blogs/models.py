@@ -50,5 +50,5 @@ class Comment(models.Model):
     return self.name
 
   class Meta:
-    ordering=['created_time']
+    ordering=['-created_time',]
 
