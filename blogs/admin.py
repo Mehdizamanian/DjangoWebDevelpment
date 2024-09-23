@@ -3,9 +3,10 @@ from django.contrib import admin
 from .models import Post , Category , Comment
 
 
-class CommentAdminInline(admin.TabularInline):
+class CommentAdminInline(admin.StackedInline):
   model=Comment
   fields=['name','email','message','active']
+  extra=0
 
 
 @admin.register(Post)
