@@ -2,6 +2,7 @@ from django.shortcuts import render ,get_object_or_404,redirect
 from .models import Post , Comment
 from .forms import CommentForm
 from django.db.models import Q
+from django.contrib import messages
 
 
 def blog(request,**kwargs):
@@ -32,6 +33,7 @@ def post_details(request , num):
     form=CommentForm(request.POST)
     if form.is_valid():
       form.save()
+      messages.success(request, "your comment added and would be published soon ... ")
       return redirect('/')
 
   context={'post':post,'comments':comments,'form':form}
