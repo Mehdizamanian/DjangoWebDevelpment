@@ -1,4 +1,4 @@
-<!------ Include the above in your HEAD tag ---------->
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+				<h3>sign up</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -32,8 +32,21 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
+
+
+				<form action={% url "accounts:signup" %} method="POST">
+          {% csrf_token %}
+          <div style="background-color:white ">
+
+            {{form.as_p}}
+
+            <div class="form-group">
+              <input type="submit" class="btn float-right login_btn">
+            </div> 
+
+          </div>
+          
+					{% comment %} <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
@@ -51,7 +64,7 @@
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div>
+					</div> {% endcomment %}
 				</form>
 			</div>
 			<div class="card-footer">
