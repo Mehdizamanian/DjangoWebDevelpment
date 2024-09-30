@@ -11,7 +11,7 @@ def signupview(request):
   if request.method=='POST':
     form=UserCreationForm(request.POST)
     if form.is_valid():
-      # messages.success(request,'your account created successfully to log in below')
+      messages.success(request,'your account created successfully to log in " Account " ')
       form.save()
       return redirect("blogs:blog")
   else:    
