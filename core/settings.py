@@ -135,6 +135,10 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT= BASE_DIR /"media/"
 
 
+#login and logout url
+LOGIN_REDIRECT_URL = 'blogs:blog'
+LOGOUT_REDIRECT_URL = 'blogs:blog'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

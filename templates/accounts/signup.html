@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="{% static "css/registeration.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/signup.css" %}">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,34 +37,43 @@
 				<form action={% url "accounts:signup" %} method="POST">
           {% csrf_token %}
           <div style="background-color:white ">
+{% comment %} 
+            {{form.as_p}} {% endcomment %}
 
-            {{form.as_p}}
-
-            <div class="form-group">
+            {% comment %} <div class="form-group">
               <input type="submit" class="btn float-right login_btn">
-            </div> 
+            </div>  {% endcomment %}
 
           </div>
           
-					{% comment %} <div class="input-group form-group">
+					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input name="username" type="text" class="form-control" placeholder="choose a username ">
 						
 					</div>
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input name="password1" type="password" class="form-control" placeholder="choose a password">
 					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input name="password2" type="password" class="form-control" placeholder="confirm your password">
+					</div>
+
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div> {% endcomment %}
+						<input type="submit" value="create" class="btn float-right login_btn">
+					</div> 
 				</form>
 			</div>
 			<div class="card-footer">
