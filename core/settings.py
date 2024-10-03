@@ -136,6 +136,7 @@ MEDIA_ROOT= BASE_DIR /"media/"
 
 
 #login and logout url
+LOGIN='/'
 LOGIN_REDIRECT_URL = 'blogs:blog'
 LOGOUT_REDIRECT_URL = 'blogs:blog'
 
