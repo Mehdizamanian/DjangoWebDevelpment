@@ -24,8 +24,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('website.urls')),
-    path('blogs/', include('blogs.urls')),
+    path('website/', include('website.urls')),
+    path('', include('blogs.urls')),
     # path('accounts/', include('django.contrib.auth.urls')), # dj account login and logout
     path('accounts/', include('accounts.urls')),
     path('captcha/', include('captcha.urls')),
