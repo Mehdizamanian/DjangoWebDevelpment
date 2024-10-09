@@ -29,6 +29,8 @@ urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')), # dj account login and logout
     path('accounts/', include('accounts.urls')),
     path('captcha/', include('captcha.urls')),
+    # summernote editor
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 if settings.DEBUG:

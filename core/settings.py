@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'taggit',
     'captcha',
+    'django_summernote',
     'website',
     'blogs',
     'accounts'
